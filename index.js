@@ -21,11 +21,22 @@ const final = readFileSync('final.txt', 'utf8');
 
 
 const part1 = (data) => {
-  const newFish = [];
-  const lines = data.split(',');
-  return lines
+  let fishes = data.split(',').map(Number);
+  for (let day = 1; day <= 80; day++) {
+    const newFish = [];
+    for (let fish of fishes) {
+      if (fish === 0) {
+        newFish.push(6);
+        newFish.push(8);
+      } else {
+        newFish.push(fish - 1)
+      }
+    }
+    fishes = newFish;
+  }
+  return fishes.length
 }
 
-console.log({'Part 1:': part1(test)});
+console.log({'Part 1:': part1(final)});
 
 /* console.log({ test, final }); */
