@@ -9,7 +9,7 @@ const final = readFileSync('final.txt', 'utf8');
 //Ce nouveau poisson commencera sa vie avec la valeur de 8 jours avant d'avoir un bébé.
 
 const part1 = (data) => {
-  const lines = data.split(' ');
+  const lines = data.split(',');
   return lines
 }
 
