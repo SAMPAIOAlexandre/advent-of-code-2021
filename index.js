@@ -19,7 +19,6 @@ const final = readFileSync('final.txt', 'utf8');
 
 
 
-
 const part1 = (data) => {
   let fishes = data.split(',').map(Number);
   for (let day = 1; day <= 80; day++) {
@@ -37,6 +36,26 @@ const part1 = (data) => {
   return fishes.length
 }
 
-console.log({'Part 1:': part1(final)});
 
-/* console.log({ test, final }); */
+
+const part2 = (data) => {
+  const timers = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for (let fish of data.split(',').map(Number)) {
+    timers[fish] ++
+  }
+  for (let day = 1; day <= 256; day++) {
+    const fishesReadyToSpawn = timers[0]; 
+
+    for (let i = 0; i < 8; i++) {
+      timers[i] = timers[i + 1]
+    }
+
+    timers[6] += fishesReadyToSpawn;
+    timers[8] = fishesReadyToSpawn;
+
+  }
+  return timers.reduce((a, b) => a + b, 0);
+}
+
+console.log({'Part 2:': part2(final)});
+
