@@ -38,6 +38,8 @@ const part1 = (data) => {
 
 
 
+
+
 const part2 = (data) => {
   const timers = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   for (let fish of data.split(',').map(Number)) {
