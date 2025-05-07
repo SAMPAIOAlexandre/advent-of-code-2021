@@ -1,1 +1,1 @@
-import { prompt } from './prompt';
+import { prompt } from './prompt.js';
